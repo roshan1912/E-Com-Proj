@@ -48,6 +48,7 @@ async function getProductForListing(
   }
   if (searchText) {
     filter.name = searchText;
+    //filter
   }
   if (categoryId) {
     filter.categoryId = categoryId;
