@@ -1,0 +1,148 @@
+<div class="flex flex-col px-40 mt-10">
+  <div>
+    <button
+      type="button"
+      class="flex items-center mb-2 text-sm text-indigo-600 hover:text-indigo-800"
+      (click)="goBack()"
+      aria-label="Go back"
+    >
+      <svg
+        class="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        ></path>
+      </svg>
+      Go back
+    </button>
+  </div>
+  <span class="text-3xl font-bold mb-6">{{
+    !isEdit ? "Add Product" : "Update Product"
+  }}</span>
+
+  <div class="h-100 overflow-auto">
+    <form
+      [formGroup]="productForm"
+      (ngSubmit)="onSubmit()"
+      class="shadow-sm w-96 px-3 border p-3"
+    >
+      <div class="flex gap-3 items-center justify-between mb-2">
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="categoryId">
+            @for(item of categories;track $index){
+            <mat-option [value]="item._id">{{ item.name }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Brand</mat-label>
+          <mat-select formControlName="brandId">
+            @for(item of brands;track $index){
+            <mat-option [value]="item._id">{{ item.name }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill" class="w-full mb-3">
+        <mat-label>Product Name</mat-label>
+        <input
+          matInput
+          id="name"
+          formControlName="name"
+          placeholder="Enter product name"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-full mb-3">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          id="description"
+          formControlName="description"
+          rows="4"
+          placeholder="Enter Description"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-full mb-3">
+        <mat-label>Purchase Price</mat-label>
+        <input
+          matInput
+          id="purchasePrice"
+          formControlName="purchasePrice"
+          type="text"
+          placeholder="Enter Purchase Price"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-full mb-3">
+        <mat-label>Selling Price</mat-label>
+        <input
+          matInput
+          id="sellingPrice"
+          formControlName="sellingPrice"
+          type="text"
+          placeholder="Enter Selling Price"
+        />
+      </mat-form-field>
+
+      <div class="w-full flex gap-4">
+        <mat-checkbox class="example-margin" formControlName="isFeatured"
+          >Is Featured</mat-checkbox
+        >
+        <mat-checkbox class="example-margin" formControlName="isNewArrival"
+          >New Arrival</mat-checkbox
+        >
+      </div>
+
+      <div formArrayName="images" class="mb-3">
+        <div class="flex items-center justify-between mb-2">
+          <mat-label class="text-sm font-medium">Images</mat-label>
+          <button
+            type="button"
+            class="px-2 bg-gray-200 rounded"
+            (click)="addImage()"
+          >
+            Add image
+          </button>
+        </div>
+
+        <div *ngFor="let ctrl of images.controls; let i = index" class="mb-2">
+          <div class="flex items-center gap-2">
+            <mat-form-field class="flex-1">
+              <mat-label>Image {{ i + 1 }}</mat-label>
+              <input
+                matInput
+                [formControlName]="i"
+                placeholder="Enter Image URL"
+              />
+            </mat-form-field>
+
+            <span
+              class="h-5 w-5 rounded cursor-pointer bg-red-200 text-red-600 flex items-center justify-center"
+              (click)="removeImage(i)"
+            >
+              ✕
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="productForm.invalid"
+        class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-50"
+      >
+        {{ isEdit ? "Update Product" : "Add Product" }}
+      </button>
+    </form>
+  </div>
+</div>

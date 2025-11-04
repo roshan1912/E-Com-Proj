@@ -1,0 +1,134 @@
+<div class="min-h-screen bg-gray-100 py-10 px-4">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl md:text-3xl font-semibold text-gray-800">My Profile</h1>
+      <div class="flex gap-3">
+        <button class="hidden md:inline-flex items-center gap-2 bg-gray-50 border border-gray-200 text-gray-700 px-3 py-2 rounded-md hover:bg-gray-100">
+          <!-- export icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          Export
+        </button>
+        <button class="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+          <!-- edit icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536M9 11l6-6L7 3l-4 4 6 6z"/></svg>
+          Edit Profile
+        </button>
+      </div>
+    </div>
+
+    <!-- Main grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- Right column: Details and actions (span 2 on large screens) -->
+      <div class="lg:col-span-2 space-y-6">
+        <!-- Personal details -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h3 class="text-base font-semibold text-gray-800 mb-4">Personal Information</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-gray-500 mb-1">Full name</label>
+              <div class="text-sm text-gray-800">Jane Doe</div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-gray-500 mb-1">Email</label>
+              <div class="text-sm text-gray-800">jane.doeexample.com</div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-gray-500 mb-1">Username</label>
+              <div class="text-sm text-gray-800">janedoe</div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-gray-500 mb-1">Date of birth</label>
+              <div class="text-sm text-gray-800">Jan 1, 1990</div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div class="text-sm text-gray-600">Want to update your details? Click edit.</div>
+            <div class="flex gap-3">
+              <button class="bg-white border border-gray-200 px-4 py-2 rounded-md text-sm hover:bg-gray-50">Edit</button>
+              <button class="bg-yellow-500 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-600">Change Password</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h3 class="text-base font-semibold text-gray-800 mb-4">Shipping Address</h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <div class="text-sm text-gray-500">Address</div>
+              <div class="text-sm font-medium text-gray-800">123 Main Street, Apt 4B</div>
+            </div>
+
+            <div>
+              <div class="text-sm text-gray-500">City, State</div>
+              <div class="text-sm font-medium text-gray-800">San Francisco, CA</div>
+            </div>
+
+            <div>
+              <div class="text-sm text-gray-500">Postal code</div>
+              <div class="text-sm font-medium text-gray-800">94105</div>
+            </div>
+
+            <div>
+              <div class="text-sm text-gray-500">Country</div>
+              <div class="text-sm font-medium text-gray-800">United States</div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <button class="text-sm text-blue-600 hover:underline">Manage addresses</button>
+          </div>
+        </div>
+
+        <!-- Order history / quick stats -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h3 class="text-base font-semibold text-gray-800 mb-4">Recent Orders</h3>
+
+          <div class="space-y-3">
+            <!-- order item -->
+            <div class="flex items-center justify-between border rounded-md p-3">
+              <div class="flex items-center gap-3">
+                <img src="https://via.placeholder.com/48" alt="prod" class="w-12 h-12 rounded-md object-cover" />
+                <div>
+                  <div class="text-sm font-medium text-gray-800">Order #12345</div>
+                  <div class="text-xs text-gray-500">2 items • Aug 02, 2025</div>
+                </div>
+              </div>
+              <div class="text-sm font-medium text-gray-800">$89.99</div>
+            </div>
+
+            <div class="flex items-center justify-between border rounded-md p-3">
+              <div class="flex items-center gap-3">
+                <img src="https://via.placeholder.com/48" alt="prod" class="w-12 h-12 rounded-md object-cover" />
+                <div>
+                  <div class="text-sm font-medium text-gray-800">Order #12297</div>
+                  <div class="text-xs text-gray-500">1 item • Jul 12, 2025</div>
+                </div>
+              </div>
+              <div class="text-sm font-medium text-gray-800">$24.50</div>
+            </div>
+
+            <div class="text-center">
+              <button class="text-sm text-blue-600 hover:underline">View all orders</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile floating action (optional) -->
+  <div class="fixed bottom-6 right-4 md:hidden">
+    <button class="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700">
+      <!-- message/support icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8-1.08 0-2.11-.16-3.06-.45L3 20l1.45-4.36C3.7 14.87 3 13.5 3 12 3 7.582 7.03 4 12 4s9 3.582 9 8z"/></svg>
+    </button>
+  </div>
+</div>

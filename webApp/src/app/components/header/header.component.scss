@@ -1,0 +1,198 @@
+.header {
+  width: 100%;
+  background: linear-gradient(90deg, #007bff, #00bcd4);
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+
+  // ===== Top Bar =====
+  &__top {
+    /* 3-column layout: logo | centered search | profile/actions */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    .header__logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      justify-self: start;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .header__search {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 720px;
+      justify-self: center;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      padding: 0.10rem 0.6rem;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        color: #fff;
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
+
+        &::placeholder {
+          color: #e0f7fa;
+        }
+      }
+
+      button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.1rem;
+        padding: 0.35rem 0.6rem;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .header__profile {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #fff;
+      font-size: 1rem;
+      cursor: default;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.2s ease;
+      justify-self: end;
+
+      i {
+        font-size: 1.3rem;
+      }
+
+      .user-name {
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .logout-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #c21f1f;
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s ease, transform 0.15s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.12);
+          transform: translateY(-2px);
+        }
+      }
+
+      .dashboard-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #fff;
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s ease, transform 0.15s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.12);
+          transform: translateY(-2px);
+        }
+      }
+
+      .auth-link {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.15s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.08);
+          transform: translateY(-2px);
+        }
+      }
+
+      &:hover {
+        color: #ffe082;
+      }
+    }
+  }
+
+  // ===== Category Menu =====
+  &__menu {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background: #0069d9;
+    padding: 0.30rem 0;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: #ffeb3b;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // ===== Responsive =====
+  @media (max-width: 768px) {
+    &__top {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      padding: 1rem;
+    }
+
+    .header__search {
+      width: 100%;
+      max-width: none;
+      justify-self: stretch;
+    }
+
+    .header__profile {
+      justify-self: center;
+    }
+
+    &__menu {
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: #0088cc;
+    }
+  }
+}

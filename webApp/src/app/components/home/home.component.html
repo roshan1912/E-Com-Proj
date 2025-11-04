@@ -1,0 +1,52 @@
+<div class="p-3">
+  <div class="relative">
+    <span
+      class="absolute left-1 top-1/2 -translate-y-1/2 z-20 bg-white/60 text-white w-10 h-20 flex items-center justify-center rounded cursor-pointer"
+      (click)="prev()"
+      role="button"
+      aria-label="Previous"
+    >
+      ‹
+    </span>
+
+    <owl-carousel-o #owl *ngIf="bannerItems?.length" [options]="customOptions">
+      <ng-template carouselSlide *ngFor="let item of bannerItems">
+        <div
+          class="relative cursor-pointer flex flex-col items-center"
+          (click)="onProductClick(item)"
+        >
+          <img
+            [src]="item.images?.[0]"
+            alt="image"
+            class="w-full h-64 object-cover block"
+          />
+          <span class="fz-12 font-bold">{{ item.name }}</span>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+
+    <span
+      class="absolute right-1 top-1/2 -translate-y-1/2 z-20 bg-white/60 text-white w-10 h-20 flex items-center justify-center rounded cursor-pointer"
+      (click)="next()"
+      role="button"
+      aria-label="Next"
+    >
+      ›
+    </span>
+  </div>
+</div>
+<div class="p-3">
+  <span class="fz-16 font-bold">New Arrivals</span>
+  <app-products-card
+    *ngIf="newProducts?.length"
+    [productList]="newProducts"
+  ></app-products-card>
+</div>
+
+<div class="p-3">
+  <span class="fz-16 font-bold">Featured Products</span>
+  <app-products-card
+    *ngIf="featuredProducts?.length"
+    [productList]="featuredProducts"
+  ></app-products-card>
+</div>

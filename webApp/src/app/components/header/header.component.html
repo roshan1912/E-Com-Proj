@@ -1,0 +1,48 @@
+<header class="header">
+  <!-- Top Row -->
+  <div class="header__top">
+    <!-- left: logo -->
+    <div class="header__logo" (click)="onShopLogoClick()">ShopWop</div>
+
+    <!-- center: search box -->
+    <div class="header__search" *ngIf="authService.isLoggedIn">
+      <input
+        type="text"
+        placeholder="Search for products..."
+        [(ngModel)]="searchText"
+        (keyup.enter)="onSearch($event)"
+      />
+      <button (click)="onSearch($event)">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- right: profile / auth links -->
+    <div class="header__profile">
+      <ng-container *ngIf="authService.isLoggedIn; else guestLinks">
+        <button
+          *ngIf="authService.isAdmin"
+          class="dashboard-btn"
+          (click)="goToDashboard()"
+        >
+          Dashboard
+        </button>
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <span class="user-name" (click)="goToProfile()">{{ authService.userName }}</span>
+        <button class="logout-btn" (click)="onLogout()">Logout</button>
+      </ng-container>
+
+      <ng-template #guestLinks>
+        <a class="auth-link" (click)="onLogin()">Log In</a>
+        <a class="auth-link" (click)="onRegister()">Register</a>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- Bottom Row (Category Menu) -->
+  <nav *ngIf="authService.isLoggedIn" class="header__menu">
+    <a *ngFor="let cat of categoryList" (click)="onSearchCategory(cat?._id)">
+      {{ cat?.name }}
+    </a>
+  </nav>
+</header>

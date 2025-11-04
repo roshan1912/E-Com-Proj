@@ -1,0 +1,44 @@
+<div class="mt-4 bg-gray-200 overflow-x-auto">
+  <div class="flex p-3 gap-4">
+    <div
+      *ngFor="let product of productList"
+      class="flex-shrink-0 w-60 bg-white cursor-pointer shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 p-3"
+      (click)="onCardDeatils(product)"
+    >
+      <img
+        [src]="product.images[0]"
+        class="w-full h-40 margin-bottom-2"
+        style="margin-bottom: 10px"
+      />
+      <div>
+        <span class="font-medium fz-12 text-gray-800 mb-1">
+          {{ product?.name }}
+        </span>
+        <!-- <span
+          class="text-gray-600 text-xs line-clamp-2 mb-2"
+          [matTooltip]="product?.description"
+        >
+          {{ product?.description }}
+        </span> -->
+        <p class="text-gray-600 text-xs font-bold mb-2">
+          ${{ product?.sellingPrice }}
+        </p>
+        <div class="flex gap-2 position-relative bottom-0">
+          <button
+            class="bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors flex-1"
+            (click)="onAddToCart(product); $event.stopPropagation()"
+          >
+            <i class="fa fa-shopping-cart text-[12px]"></i>
+            Add to Cart
+          </button>
+          <button
+            class="bg-green-600 text-white px-3 py-1 rounded text-xs hover:bg-green-700 transition-colors ml-auto"
+            (click)="onBuyNow(product); $event.stopPropagation()"
+          >
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
