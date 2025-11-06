@@ -47,8 +47,17 @@ async function getProductForListing(
     sortOrder = -1;
   }
   if (searchText) {
-    filter.name = searchText;
-    //filter
+    //the below filter is or operator filter that will in what ever keys we provide in the list
+    filter.$or = [
+      {
+        name: { $regex: ".*" + searchText + ".*" },
+      },
+      {
+        description: { $regex: ".*" + searchText + ".*" },
+      },
+    ];
+    // filter.name = { $regex: ".*" + searchText + ".*" };
+    //the above comment is for some specific key like name this will filter only on name
   }
   if (categoryId) {
     filter.categoryId = categoryId;

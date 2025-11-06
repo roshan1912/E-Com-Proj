@@ -14,7 +14,7 @@ customerRouter.get("/new-products", async (req, res) => {
 });
 
 customerRouter.get("/products", async (req, res) => {
-  const { searchText, categoryId, sortBy, sortOrder } = req.params;
+  const { searchText, categoryId, sortBy, sortOrder } = req.query;
   let products = await getProductForListing(
     searchText,
     categoryId,
