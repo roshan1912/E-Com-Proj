@@ -37,7 +37,7 @@ async function getProductForListing(
   page,
   pageSize,
   sortBy,
-  sortOrder
+  sortOrder,
 ) {
   let filter = {};
   if (!sortBy) {
