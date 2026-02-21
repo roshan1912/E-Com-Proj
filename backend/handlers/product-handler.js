@@ -57,7 +57,7 @@ async function getProductForListing(
       },
     ];
     // filter.name = { $regex: ".*" + searchText + ".*" };
-    //the above comment is for some specific key like name this will filter only on name
+    //the above comment is for some specific key like name this will filter only on name or other like same
   }
   if (categoryId) {
     filter.categoryId = categoryId;
